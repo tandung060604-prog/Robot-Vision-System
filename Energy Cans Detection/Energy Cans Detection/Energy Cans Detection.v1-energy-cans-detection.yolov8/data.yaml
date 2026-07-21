@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['birdy', 'bo_huc', 'boss_coffee']
+
+roboflow:
+  workspace: ccs-workspace-vjc2v
+  project: energy-cans-detection
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/ccs-workspace-vjc2v/energy-cans-detection/dataset/1

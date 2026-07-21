@@ -1,0 +1,24 @@
+description: Ultralytics best model trained on /content/Object-Classification-1/data.yaml
+author: Ultralytics
+date: '2026-04-19T14:11:01.707797'
+version: 8.4.39
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 320
+- 320
+names:
+  0: hop_thuoc
+  1: khoi_mau
+  2: nuoc_ngot
+args:
+  batch: 1
+  fraction: 1.0
+  half: false
+  int8: true
+  nms: false
+channels: 3
+end2end: false

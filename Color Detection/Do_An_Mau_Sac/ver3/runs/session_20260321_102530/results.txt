@@ -1,0 +1,2 @@
+ID: session_20260321_102530
+Result: {'red_box': 'Mã 1'}

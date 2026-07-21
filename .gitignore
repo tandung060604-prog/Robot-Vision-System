@@ -1,0 +1,43 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Large files and datasets
+*.zip
+*.rar
+*.mp4
+*.avi
+*.mkv
+*.pptx
+# Bỏ qua tất cả các file pdf ở ngoài cùng, tài liệu báo cáo nên theo dõi cẩn thận
+*.pdf
+!docs/*.pdf
+!docs/archive/*.pdf
+
+# Model Weights
+*.pt
+*.onnx
+*.pb
+# We might keep .tflite if they are small, but to be safe, ignore large ones if needed.
+# For now, we will track .tflite and .bin/.param if they are under 100MB.
+
+# Data directories (do not push datasets and videos)
+data/
+datasets/
+docs/archive/

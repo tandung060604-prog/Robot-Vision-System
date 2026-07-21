@@ -1,0 +1,232 @@
+\documentclass[a4paper,fontsize=14pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{mathptmx}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+
+% Thiết lập lề trang theo yêu cầu
+\geometry{
+    left=2.54cm,
+    right=2.54cm,
+    top=2.54cm,
+    bottom=2.54cm
+}
+
+% Không đánh số trang
+\pagestyle{empty}
+
+% Thiết lập khoảng cách dòng
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Định nghĩa độ rộng cột cho bảng
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% Chiều rộng nội dung = 21cm - 2.6cm - 1.5cm = 16.9cm
+\newlength{\contentwidth}
+\setlength{\contentwidth}{15.8cm}
+
+\begin{document}
+
+% Header với 2 cột - chiều rộng = 16.9cm
+\noindent
+{
+\fontsize{13pt}{15pt}\selectfont
+\begin{tabular}{@{}>{\centering\arraybackslash}p{7.2cm}>{\centering\arraybackslash}p{9.6cm}@{}}
+ĐẠI HỌC CÔNG NGHIỆP HÀ NỘI & \textbf{CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM} \\
+\underline{\textbf{TRƯỜNG CƠ KHÍ -- Ô TÔ}} & \underline{\textbf{Độc lập - Tự do - Hạnh phúc}} \\
+\end{tabular}
+}
+
+\vspace{0.5cm}
+
+% Tiêu đề chính
+\begin{center}
+\textbf{PHIẾU GIAO ĐỀ TÀI ĐỒ ÁN TỐT NGHIỆP}\\[0.3cm]
+\textbf{CHUYÊN NGÀNH ROBOT VÀ TRÍ TUỆ NHÂN TẠO}
+\end{center}
+
+\vspace{0.2cm}
+
+\textbf{Họ tên sinh viên:}
+
+\vspace{0.2cm}
+
+% Bảng sinh viên
+\noindent
+\hspace{0.5cm}
+\begin{tabular}{@{}l@{\hspace{0.5cm}}l@{\hspace{0.5cm}}l@{\hspace{0.5cm}}l@{}}
+1. Nguyễn Văn Hưng & Mã SV: 2021608422 & Lớp: 2021DHRBNT01 & Khóa:16 \\[0.1cm]
+2. Vũ Trọng Lộc & Mã SV: 2021604610 & Lớp: 2021DHRBNT01 & Khóa:16 \\[0.1cm]
+3. Chu Quang Tiến & Mã SV: 2021606878 & Lớp: 2021DHRBNT01 & Khóa:16 \\
+\end{tabular}
+
+\vspace{0.4cm}
+
+\textbf{Tên đề tài:} Nghiên cứu, thiết kế và chế tạo hệ thống kiểm tra linh kiện mạch điện tử sử dụng tay máy robot kết hợp PLC và xử lý ảnh.
+
+\vspace{0.3cm}
+
+\textbf{Mục tiêu đề tài:}
+
+% Đổi bullet thành gạch ngang
+\renewcommand{\labelitemi}{--}
+\begin{itemize}[leftmargin=1cm, itemsep=0pt, parsep=0pt, topsep=0pt]
+    \item Nghiên cứu nguyên lý hoạt động của tay máy robot.
+    \item Nghiên cứu, tính toán và lựa chọn các thiết bị trong hệ thống tự động.
+    \item Tìm hiểu và lựa chọn giải pháp xử lý ảnh phù hợp.
+    \item Thiết kế hệ thống điều khiển và giám sát.
+    \item Chế tạo và thử nghiệm và đánh giá hệ thống điều khiển giám sát mô hình kiểm tra linh kiện mạch điện tử.
+\end{itemize}
+
+\vspace{0.2cm}
+
+\textbf{Kết quả dự kiến}
+
+\begin{itemize}[leftmargin=1cm, itemsep=0pt, parsep=0pt, topsep=0pt]
+    \item Thuyết minh: Quyển báo cáo nghiên cứu, thiết kế và chế tạo hệ thống kiểm tra linh kiện mạch điện tử sử dụng tay máy robot kết hợp PLC và xử lý ảnh.
+    \item Bản vẽ: Hệ thống cơ khí, hệ thống điện điều khiển.
+    \item Lưu đồ thuật toán và chương trình điều khiển, giám sát.
+    \item Sản phầm mô hình hệ thống kiểm tra linh kiện mạch điện tử.
+\end{itemize}
+
+\vspace{0.3cm}
+
+\textbf{Thời gian thực hiện:} Từ ngày 29/9/2025 đến ngày 07/12/2025.
+
+\vspace{0.5cm}
+
+% Bảng chữ ký - chiều rộng = 16.9cm
+\noindent
+\begin{tabular}{@{}C{7.9cm}C{7.9cm}@{}}
+\textbf{GIÁO VIÊN HƯỚNG DẪN} & \textbf{HIỆU TRƯỞNG} \\
+\textit{(Ký và ghi rõ họ tên)} & \\[2cm]
+\textbf{TS. Phạm Tiến Hùng} & \textbf{PGS.TS. Hoàng Tiến Dũng} \\
+\end{tabular}
+
+\newpage
+
+% Trang 2
+\begin{center}
+\textbf{\large NỘI DUNG THỰC HIỆN}
+\end{center}
+
+\vspace{0.3cm}
+
+\textbf{1. Bố cục thuyết minh đề tài:}
+
+\vspace{0.2cm}
+
+% Bảng nội dung chương - chiều rộng = 16.9cm
+\noindent
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|L{11.8cm}|L{4.0cm}|}
+\hline
+\textbf{Nội dung nghiên cứu} & \textbf{SV thực hiện} \\
+\hline
+\textbf{Chương 1: Giới thiệu chung} & \\
+\hline
+1.1. Lịch sử nghiên cứu & Nguyễn Văn Hưng \\
+\hline
+1.2. Đối tượng và phạm vi nghiên cứu & Vũ Trọng Lộc \\
+\hline
+1.3. Mục tiêu nghiên cứu đề tài & \\
+\hline
+1.4. Phương pháp thực hiện & Chu Quang Tiến \\
+\hline
+1.5. Dự kiến kết quả đạt được & \\
+\hline
+\textbf{Chương 2: Cơ sở lý thuyết} & \\
+\hline
+2.1. Kết cấu cơ khí của hệ thống & Vũ Trọng Lộc \\
+\hline
+2.2. Hệ thống điều khiển & Nguyễn Văn Hưng \\
+\hline
+2.3. Hệ thống cảm biến & Nguyễn Văn Hưng \\
+\hline
+2.4. Hệ thống camera & Vũ Trọng Lộc \\
+\hline
+2.5. Công nghệ xử lý ảnh & Chu Quang Tiến \\
+\hline
+2.6. Phương pháp học máy nhận diện đối tượng & Chu Quang Tiến \\
+\hline
+\textbf{Chương 3: Tính toán, thiết kế hệ thống} & \\
+\hline
+3.1. Tính toán, thiết kế hệ thống cơ khí & Nguyễn Văn Hưng \\
+\hline
+3.2. Tính toán, thiết kế hệ thống điện, điều khiển & Vũ Trọng Lộc \\
+\hline
+3.3. Thiết kế hệ thống camera tích hợp xử lý ảnh & Chu Quang Tiến \\
+\hline
+3.4. Thiết kế giao diện giám sát và điều khiển HMI & Chu Quang Tiến \\
+\hline
+\textbf{Chương 4: Chế tạo mô hình và đánh giá hoạt động} & \\
+\textbf{hệ thống} & \\
+\hline
+4.1. Chế tạo mô hình hệ thống cơ khí & Nguyễn Văn Hưng \\
+\hline
+4.2. Chế tạo mô hình hệ thống điện điều khiển & Vũ Trọng Lộc \\
+\hline
+4.3. Thử nghiệm và đánh giá hoạt động hệ thống & Chu Quang Tiến \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textbf{2. Bản vẽ:}
+
+\vspace{0.3cm}
+
+% Bảng bản vẽ - chiều rộng = 16.9cm
+\noindent
+\begin{tabular}{|C{0.8cm}|L{6.0cm}|C{2.0cm}|C{2.0cm}|L{4cm}|}
+\hline
+\textbf{TT} & \textbf{Tên bản vẽ} & \textbf{Khổ giấy} & \textbf{Số lượng} & \textbf{SV thực hiện} \\ \hline
+1 & Bản vẽ lắp hệ thống cơ khí & A3 & 1 & Nguyễn Văn Hưng \\ \hline
+2 & Bản vẽ hệ thống điều khiển & A3 & 1 & Vũ Trọng Lộc \\ \hline
+3 & Lưu đồ thuật toán điều khiển & A3 & 1 & Chu Quang Tiến \\ \hline
+\end{tabular}
+
+\vspace{0.3cm}
+
+\textbf{3. Mô hình/ sản phẩm}
+
+\vspace{0.3cm}
+
+% Bảng mô hình - chiều rộng = 16.9cm
+\noindent
+\begin{tabular}{|L{11.8cm}|L{4.0cm}|}
+\hline
+\textbf{Nội dung công việc} & \textbf{SV thực hiện} \\ \hline
+1. Chế tạo, lắp ráp các cơ cấu chuyển động cơ khí trong mô hình hệ thống & Nguyễn Văn Hưng \\ \hline
+2. Lắp ráp mạch điện và điều khiển & Vũ Trọng Lộc \\ \hline
+3. Lập trình điều khiển & Chu Quang Tiến \\ \hline
+4. Lập trình xử lý ảnh & Chu Quang Tiến \\ \hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\textit{\underline{* Ghi chú}}
+
+%\vspace{0.2cm}
+\begin{enumerate}[leftmargin=1cm, itemsep=0pt, parsep=0pt, topsep=0pt]
+    \item Thuyết minh trình bày theo quy định số 1532/QĐ-ĐHCN ban hành ngày 24/09/2025.
+    \item Bản vẽ trình bày theo tiêu chuẩn Việt Nam (TCVN 7283; TCVN 0008).
+\end{enumerate}
+
+\begin{flushright}
+\begin{tabular}{c}
+\textbf{GIẢNG VIÊN HƯỚNG DẪN}\\
+\textit{(Ký và ghi rõ họ tên)}\\[2cm]
+\textbf{TS. Phạm Tiến Hùng}
+\end{tabular}
+\end{flushright}
+
+\end{document}
