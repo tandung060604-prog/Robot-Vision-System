@@ -1,0 +1,2 @@
+ID: session_20260321_103937
+Results: {'yellow_box': 'Mã 3', 'blue_box': 'Mã 1', 'red_box': 'Mã 2'}
