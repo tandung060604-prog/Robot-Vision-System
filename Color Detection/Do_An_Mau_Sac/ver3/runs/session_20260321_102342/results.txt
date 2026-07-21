@@ -1,2 +1,0 @@
-ID: session_20260321_102342
-Result: {'blue_box': 'Mã 3'}
