@@ -1,2 +1,0 @@
-ID: session_20260321_123325
-Results: {'red_box': 'Mã 3', 'yellow_box': 'Mã 1', 'blue_box': 'Mã 2'}
