@@ -1,53 +1,105 @@
-# Mobile Robot Vision System
+# Robot Vision System
 
-Dự án Đồ án Tốt nghiệp: Hệ thống nhận diện hình ảnh cho Mobile Robot (Nhận diện màu sắc, Nhận diện thuốc, Nhận diện nước tăng lực, Nhận diện vật thể).
+> Real-time, edge-ready visual perception for a mobile robot.
 
-## 🚀 Giới thiệu
-Hệ thống sử dụng các mô hình học sâu (Deep Learning) để thực hiện các bài toán nhận diện đối tượng theo thời gian thực (Real-time Object Detection) thông qua camera gắn trên robot. Các module bao gồm:
-- **Color Detection**: Nhận diện màu sắc và phân loại tín hiệu.
-- **Drug Detection**: Nhận diện các loại thuốc.
-- **Energy Cans Detection**: Nhận diện lon nước tăng lực.
-- **Object Detection**: Nhận diện vật thể nói chung.
+[![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?logo=opencv&logoColor=white)](https://opencv.org/)
+[![TensorFlow Lite](https://img.shields.io/badge/TensorFlow-Lite-FF6F00?logo=tensorflow&logoColor=white)](https://www.tensorflow.org/lite)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 📁 Cấu trúc thư mục
+## Overview
+
+**Robot Vision System** is a graduation project that equips a mobile robot with real-time visual perception. A camera stream is processed by an optimized TensorFlow Lite model, then the system reports detected objects, their locations, confidence, and live FPS. The design targets deployment on resource-constrained robot computers while remaining easy to run on a laptop during development.
+
+### Key capabilities
+
+- **Real-time detection** from a USB/web camera with visual bounding boxes.
+- **Edge inference** using TensorFlow Lite (`float16`, `float32`, or quantized `int8` models).
+- **Robot-relevant classes**: medicine boxes (`hop_thuoc`), colored blocks (`khoi_mau`), and beverage cans (`nuoc_ngot`).
+- **Tunable detection pipeline**: confidence threshold, NMS IoU threshold, camera index, resolution, and model path are configurable from the command line.
+- **Diagnostics**: clear startup validation, frame-rate overlay, and structured console events that can be connected to robot control logic.
+
+## Project structure
 
 ```text
-/
-├── python/                   # Source code chính của đồ án
-│   ├── color_detection/      # Code nhận diện màu sắc
-│   ├── drug_detection/       # Code nhận diện thuốc
-│   ├── energy_cans_detection/# Code nhận diện lon nước tăng lực
-│   └── object_detection/     # Code nhận diện vật thể chung
-├── docs/                     # Tài liệu đồ án, báo cáo
-├── data/                     # Data test, dataset, media (đã bị bỏ qua trên git)
-├── .gitignore                # File cấu hình Git ignore
-└── README.md                 # Tài liệu hướng dẫn
+.
+├── docs/                         # Reports, component list, and project documentation
+├── python/
+│   └── object_detection/
+│       ├── test_detect.py         # Configurable real-time TFLite inference application
+│       ├── detect.py              # YOLO/OpenCV inference prototype
+│       ├── best_int8.tflite       # Quantized edge model
+│       ├── metadata.yaml          # Model metadata
+│       └── sample_image.jpg       # Example input image
+├── requirements.txt               # Reproducible Python dependencies
+├── .gitignore
+└── LICENSE
 ```
 
-## ⚙️ Cài đặt & Hướng dẫn sử dụng
+## Quick start
 
-### 1. Yêu cầu hệ thống
-- Python 3.8+
-- Các thư viện cần thiết: `opencv-python`, `torch`, `torchvision`, `ultralytics`, `flask` (nếu chạy web server), v.v.
-
-### 2. Cài đặt thư viện
-Bạn có thể cài đặt các thư viện cần thiết cho từng module bằng cách chạy lệnh:
-```bash
-pip install -r requirements.txt # (Nếu có file requirements)
-```
-Hoặc cài đặt thủ công dựa trên các file code trong thư mục `python/`.
-
-### 3. Chạy chương trình
-Di chuyển vào từng module tương ứng trong `python/` và chạy file Python chính (ví dụ `main.py`, `app_v2.py`, v.v.).
+### 1. Clone and create an environment
 
 ```bash
-cd python/color_detection
-python app_v2.py
+git clone https://github.com/tandung060604-prog/Robot-Vision-System.git
+cd Robot-Vision-System
+python -m venv .venv
 ```
 
-## 📝 Lưu ý
-- Các file mô hình có kích thước lớn (như `.pt`, `.pb`) hoặc các video demo, dataset nằm trong thư mục `data/` đã được thiết lập bỏ qua trong file `.gitignore` để tránh phình to dung lượng kho lưu trữ trên GitHub. 
-- Vui lòng chỉ đưa lên các mô hình tối ưu đã nén như `.tflite` (dưới 100MB).
+Activate the environment:
 
-## 📜 Giấy phép
-Dự án được phân phối dưới giấy phép MIT. Xem thêm tại file `LICENSE`.
+```bash
+# Windows PowerShell
+.\.venv\Scripts\Activate.ps1
+
+# macOS / Linux
+source .venv/bin/activate
+```
+
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run real-time detection
+
+```bash
+cd python/object_detection
+python test_detect.py --model best_int8.tflite --camera 0 --confidence 0.61
+```
+
+Press `q` in the preview window to exit. If the robot camera is attached as another device, try `--camera 1`.
+
+## Configuration
+
+```bash
+python test_detect.py --help
+```
+
+| Option | Default | Purpose |
+| --- | --- | --- |
+| `--model` | `best_int8.tflite` | Path to a TensorFlow Lite object-detection model |
+| `--camera` | `0` | OpenCV camera device index |
+| `--confidence` | `0.61` | Minimum detection confidence (0–1) |
+| `--nms-iou` | `0.45` | Overlap threshold used for non-maximum suppression |
+| `--width`, `--height` | `640`, `480` | Requested camera resolution |
+
+## Model notes
+
+The TFLite models are included for convenient demonstration. The application automatically handles normalized floating-point input and quantized integer input, including the model's quantization scale and zero point. For a custom model, keep the expected YOLO-style output layout or adapt `decode_predictions()` in `test_detect.py`.
+
+## Documentation
+
+Project reports and the hardware component list are available in [`docs/`](docs/). They provide the research context, robot architecture, and implementation details behind this prototype.
+
+## Roadmap
+
+- [ ] Publish a short hardware/demo video and inference benchmark.
+- [ ] Connect detected target coordinates to the robot navigation/manipulator controller.
+- [ ] Add automated tests using recorded camera frames.
+- [ ] Export trained models and datasets through versioned releases.
+
+## License
+
+Distributed under the [MIT License](LICENSE).
